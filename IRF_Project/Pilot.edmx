@@ -1,0 +1,491 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Database1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Pilot">
+          <Key>
+            <PropertyRef Name="PilotId" />
+          </Key>
+          <Property Name="PilotId" Type="int" Nullable="false" />
+          <Property Name="Név" Type="nchar" MaxLength="50" />
+          <Property Name="Nem" Type="bit" />
+          <Property Name="Kor" Type="int" />
+          <Property Name="18f2" Type="int" />
+          <Property Name="19f2" Type="int" />
+          <Property Name="20f2" Type="int" />
+          <Property Name="18f3" Type="int" />
+          <Property Name="19f3" Type="int" />
+          <Property Name="20f3" Type="int" />
+          <Property Name="18g3" Type="int" />
+          <Property Name="18fe" Type="int" />
+          <Property Name="19fe" Type="int" />
+          <Property Name="20fe" Type="int" />
+          <Property Name="egyéb" Type="bit" />
+          <Property Name="szerződés" Type="bit" />
+          <Property Name="verseny" Type="bit" />
+          <Property Name="teszt" Type="bit" />
+        </EntityType>
+        <EntityType Name="Place">
+          <Key>
+            <PropertyRef Name="PlaceId" />
+          </Key>
+          <Property Name="PlaceId" Type="int" Nullable="false" />
+          <Property Name="f2" Type="int" />
+          <Property Name="f3" Type="int" />
+          <Property Name="gp3" Type="int" />
+          <Property Name="fe" Type="int" />
+        </EntityType>
+        <Association Name="10FK_Pilot_ToPlace">
+          <End Role="Place" Type="Self.Place" Multiplicity="0..1" />
+          <End Role="Pilot" Type="Self.Pilot" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Place">
+              <PropertyRef Name="PlaceId" />
+            </Principal>
+            <Dependent Role="Pilot">
+              <PropertyRef Name="20fe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="1FK_Pilot_ToPlace">
+          <End Role="Place" Type="Self.Place" Multiplicity="0..1" />
+          <End Role="Pilot" Type="Self.Pilot" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Place">
+              <PropertyRef Name="PlaceId" />
+            </Principal>
+            <Dependent Role="Pilot">
+              <PropertyRef Name="18f2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="2FK_Pilot_ToPlace">
+          <End Role="Place" Type="Self.Place" Multiplicity="0..1" />
+          <End Role="Pilot" Type="Self.Pilot" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Place">
+              <PropertyRef Name="PlaceId" />
+            </Principal>
+            <Dependent Role="Pilot">
+              <PropertyRef Name="19f2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="3FK_Pilot_ToPlace">
+          <End Role="Place" Type="Self.Place" Multiplicity="0..1" />
+          <End Role="Pilot" Type="Self.Pilot" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Place">
+              <PropertyRef Name="PlaceId" />
+            </Principal>
+            <Dependent Role="Pilot">
+              <PropertyRef Name="20f2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="4FK_Pilot_ToPlace">
+          <End Role="Place" Type="Self.Place" Multiplicity="0..1" />
+          <End Role="Pilot" Type="Self.Pilot" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Place">
+              <PropertyRef Name="PlaceId" />
+            </Principal>
+            <Dependent Role="Pilot">
+              <PropertyRef Name="18f3" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="5FK_Pilot_ToPlace">
+          <End Role="Place" Type="Self.Place" Multiplicity="0..1" />
+          <End Role="Pilot" Type="Self.Pilot" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Place">
+              <PropertyRef Name="PlaceId" />
+            </Principal>
+            <Dependent Role="Pilot">
+              <PropertyRef Name="19f3" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="6FK_Pilot_ToPlace">
+          <End Role="Place" Type="Self.Place" Multiplicity="0..1" />
+          <End Role="Pilot" Type="Self.Pilot" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Place">
+              <PropertyRef Name="PlaceId" />
+            </Principal>
+            <Dependent Role="Pilot">
+              <PropertyRef Name="20f3" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="7FK_Pilot_ToPlace">
+          <End Role="Place" Type="Self.Place" Multiplicity="0..1" />
+          <End Role="Pilot" Type="Self.Pilot" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Place">
+              <PropertyRef Name="PlaceId" />
+            </Principal>
+            <Dependent Role="Pilot">
+              <PropertyRef Name="18g3" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="8FK_Pilot_ToPlace">
+          <End Role="Place" Type="Self.Place" Multiplicity="0..1" />
+          <End Role="Pilot" Type="Self.Pilot" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Place">
+              <PropertyRef Name="PlaceId" />
+            </Principal>
+            <Dependent Role="Pilot">
+              <PropertyRef Name="18fe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="9FK_Pilot_ToPlace">
+          <End Role="Place" Type="Self.Place" Multiplicity="0..1" />
+          <End Role="Pilot" Type="Self.Pilot" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Place">
+              <PropertyRef Name="PlaceId" />
+            </Principal>
+            <Dependent Role="Pilot">
+              <PropertyRef Name="19fe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Database1ModelStoreContainer">
+          <EntitySet Name="Pilot" EntityType="Self.Pilot" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Place" EntityType="Self.Place" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="10FK_Pilot_ToPlace" Association="Self.10FK_Pilot_ToPlace">
+            <End Role="Place" EntitySet="Place" />
+            <End Role="Pilot" EntitySet="Pilot" />
+          </AssociationSet>
+          <AssociationSet Name="1FK_Pilot_ToPlace" Association="Self.1FK_Pilot_ToPlace">
+            <End Role="Place" EntitySet="Place" />
+            <End Role="Pilot" EntitySet="Pilot" />
+          </AssociationSet>
+          <AssociationSet Name="2FK_Pilot_ToPlace" Association="Self.2FK_Pilot_ToPlace">
+            <End Role="Place" EntitySet="Place" />
+            <End Role="Pilot" EntitySet="Pilot" />
+          </AssociationSet>
+          <AssociationSet Name="3FK_Pilot_ToPlace" Association="Self.3FK_Pilot_ToPlace">
+            <End Role="Place" EntitySet="Place" />
+            <End Role="Pilot" EntitySet="Pilot" />
+          </AssociationSet>
+          <AssociationSet Name="4FK_Pilot_ToPlace" Association="Self.4FK_Pilot_ToPlace">
+            <End Role="Place" EntitySet="Place" />
+            <End Role="Pilot" EntitySet="Pilot" />
+          </AssociationSet>
+          <AssociationSet Name="5FK_Pilot_ToPlace" Association="Self.5FK_Pilot_ToPlace">
+            <End Role="Place" EntitySet="Place" />
+            <End Role="Pilot" EntitySet="Pilot" />
+          </AssociationSet>
+          <AssociationSet Name="6FK_Pilot_ToPlace" Association="Self.6FK_Pilot_ToPlace">
+            <End Role="Place" EntitySet="Place" />
+            <End Role="Pilot" EntitySet="Pilot" />
+          </AssociationSet>
+          <AssociationSet Name="7FK_Pilot_ToPlace" Association="Self.7FK_Pilot_ToPlace">
+            <End Role="Place" EntitySet="Place" />
+            <End Role="Pilot" EntitySet="Pilot" />
+          </AssociationSet>
+          <AssociationSet Name="8FK_Pilot_ToPlace" Association="Self.8FK_Pilot_ToPlace">
+            <End Role="Place" EntitySet="Place" />
+            <End Role="Pilot" EntitySet="Pilot" />
+          </AssociationSet>
+          <AssociationSet Name="9FK_Pilot_ToPlace" Association="Self.9FK_Pilot_ToPlace">
+            <End Role="Place" EntitySet="Place" />
+            <End Role="Pilot" EntitySet="Pilot" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Database1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Pilot">
+          <Key>
+            <PropertyRef Name="PilotId" />
+          </Key>
+          <Property Name="PilotId" Type="Int32" Nullable="false" />
+          <Property Name="Név" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Nem" Type="Boolean" />
+          <Property Name="Kor" Type="Int32" />
+          <Property Name="C18f2" Type="Int32" />
+          <Property Name="C19f2" Type="Int32" />
+          <Property Name="C20f2" Type="Int32" />
+          <Property Name="C18f3" Type="Int32" />
+          <Property Name="C19f3" Type="Int32" />
+          <Property Name="C20f3" Type="Int32" />
+          <Property Name="C18g3" Type="Int32" />
+          <Property Name="C18fe" Type="Int32" />
+          <Property Name="C19fe" Type="Int32" />
+          <Property Name="C20fe" Type="Int32" />
+          <Property Name="egyéb" Type="Boolean" />
+          <Property Name="szerződés" Type="Boolean" />
+          <Property Name="verseny" Type="Boolean" />
+          <Property Name="teszt" Type="Boolean" />
+          <NavigationProperty Name="Place" Relationship="Self.C10FK_Pilot_ToPlace" FromRole="Pilot" ToRole="Place" />
+          <NavigationProperty Name="Place1" Relationship="Self.C1FK_Pilot_ToPlace" FromRole="Pilot" ToRole="Place" />
+          <NavigationProperty Name="Place2" Relationship="Self.C2FK_Pilot_ToPlace" FromRole="Pilot" ToRole="Place" />
+          <NavigationProperty Name="Place3" Relationship="Self.C3FK_Pilot_ToPlace" FromRole="Pilot" ToRole="Place" />
+          <NavigationProperty Name="Place4" Relationship="Self.C4FK_Pilot_ToPlace" FromRole="Pilot" ToRole="Place" />
+          <NavigationProperty Name="Place5" Relationship="Self.C5FK_Pilot_ToPlace" FromRole="Pilot" ToRole="Place" />
+          <NavigationProperty Name="Place6" Relationship="Self.C6FK_Pilot_ToPlace" FromRole="Pilot" ToRole="Place" />
+          <NavigationProperty Name="Place7" Relationship="Self.C7FK_Pilot_ToPlace" FromRole="Pilot" ToRole="Place" />
+          <NavigationProperty Name="Place8" Relationship="Self.C8FK_Pilot_ToPlace" FromRole="Pilot" ToRole="Place" />
+          <NavigationProperty Name="Place9" Relationship="Self.C9FK_Pilot_ToPlace" FromRole="Pilot" ToRole="Place" />
+        </EntityType>
+        <EntityType Name="Place">
+          <Key>
+            <PropertyRef Name="PlaceId" />
+          </Key>
+          <Property Name="PlaceId" Type="Int32" Nullable="false" />
+          <Property Name="f2" Type="Int32" />
+          <Property Name="f3" Type="Int32" />
+          <Property Name="gp3" Type="Int32" />
+          <Property Name="fe" Type="Int32" />
+          <NavigationProperty Name="Pilots" Relationship="Self.C10FK_Pilot_ToPlace" FromRole="Place" ToRole="Pilot" />
+          <NavigationProperty Name="Pilots1" Relationship="Self.C1FK_Pilot_ToPlace" FromRole="Place" ToRole="Pilot" />
+          <NavigationProperty Name="Pilots2" Relationship="Self.C2FK_Pilot_ToPlace" FromRole="Place" ToRole="Pilot" />
+          <NavigationProperty Name="Pilots3" Relationship="Self.C3FK_Pilot_ToPlace" FromRole="Place" ToRole="Pilot" />
+          <NavigationProperty Name="Pilots4" Relationship="Self.C4FK_Pilot_ToPlace" FromRole="Place" ToRole="Pilot" />
+          <NavigationProperty Name="Pilots5" Relationship="Self.C5FK_Pilot_ToPlace" FromRole="Place" ToRole="Pilot" />
+          <NavigationProperty Name="Pilots6" Relationship="Self.C6FK_Pilot_ToPlace" FromRole="Place" ToRole="Pilot" />
+          <NavigationProperty Name="Pilots7" Relationship="Self.C7FK_Pilot_ToPlace" FromRole="Place" ToRole="Pilot" />
+          <NavigationProperty Name="Pilots8" Relationship="Self.C8FK_Pilot_ToPlace" FromRole="Place" ToRole="Pilot" />
+          <NavigationProperty Name="Pilots9" Relationship="Self.C9FK_Pilot_ToPlace" FromRole="Place" ToRole="Pilot" />
+        </EntityType>
+        <Association Name="C10FK_Pilot_ToPlace">
+          <End Role="Place" Type="Self.Place" Multiplicity="0..1" />
+          <End Role="Pilot" Type="Self.Pilot" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Place">
+              <PropertyRef Name="PlaceId" />
+            </Principal>
+            <Dependent Role="Pilot">
+              <PropertyRef Name="C20fe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="C1FK_Pilot_ToPlace">
+          <End Role="Place" Type="Self.Place" Multiplicity="0..1" />
+          <End Role="Pilot" Type="Self.Pilot" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Place">
+              <PropertyRef Name="PlaceId" />
+            </Principal>
+            <Dependent Role="Pilot">
+              <PropertyRef Name="C18f2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="C2FK_Pilot_ToPlace">
+          <End Role="Place" Type="Self.Place" Multiplicity="0..1" />
+          <End Role="Pilot" Type="Self.Pilot" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Place">
+              <PropertyRef Name="PlaceId" />
+            </Principal>
+            <Dependent Role="Pilot">
+              <PropertyRef Name="C19f2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="C3FK_Pilot_ToPlace">
+          <End Role="Place" Type="Self.Place" Multiplicity="0..1" />
+          <End Role="Pilot" Type="Self.Pilot" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Place">
+              <PropertyRef Name="PlaceId" />
+            </Principal>
+            <Dependent Role="Pilot">
+              <PropertyRef Name="C20f2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="C4FK_Pilot_ToPlace">
+          <End Role="Place" Type="Self.Place" Multiplicity="0..1" />
+          <End Role="Pilot" Type="Self.Pilot" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Place">
+              <PropertyRef Name="PlaceId" />
+            </Principal>
+            <Dependent Role="Pilot">
+              <PropertyRef Name="C18f3" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="C5FK_Pilot_ToPlace">
+          <End Role="Place" Type="Self.Place" Multiplicity="0..1" />
+          <End Role="Pilot" Type="Self.Pilot" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Place">
+              <PropertyRef Name="PlaceId" />
+            </Principal>
+            <Dependent Role="Pilot">
+              <PropertyRef Name="C19f3" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="C6FK_Pilot_ToPlace">
+          <End Role="Place" Type="Self.Place" Multiplicity="0..1" />
+          <End Role="Pilot" Type="Self.Pilot" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Place">
+              <PropertyRef Name="PlaceId" />
+            </Principal>
+            <Dependent Role="Pilot">
+              <PropertyRef Name="C20f3" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="C7FK_Pilot_ToPlace">
+          <End Role="Place" Type="Self.Place" Multiplicity="0..1" />
+          <End Role="Pilot" Type="Self.Pilot" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Place">
+              <PropertyRef Name="PlaceId" />
+            </Principal>
+            <Dependent Role="Pilot">
+              <PropertyRef Name="C18g3" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="C8FK_Pilot_ToPlace">
+          <End Role="Place" Type="Self.Place" Multiplicity="0..1" />
+          <End Role="Pilot" Type="Self.Pilot" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Place">
+              <PropertyRef Name="PlaceId" />
+            </Principal>
+            <Dependent Role="Pilot">
+              <PropertyRef Name="C18fe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="C9FK_Pilot_ToPlace">
+          <End Role="Place" Type="Self.Place" Multiplicity="0..1" />
+          <End Role="Pilot" Type="Self.Pilot" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Place">
+              <PropertyRef Name="PlaceId" />
+            </Principal>
+            <Dependent Role="Pilot">
+              <PropertyRef Name="C19fe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Database1Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Pilots" EntityType="Self.Pilot" />
+          <EntitySet Name="Places" EntityType="Self.Place" />
+          <AssociationSet Name="C10FK_Pilot_ToPlace" Association="Self.C10FK_Pilot_ToPlace">
+            <End Role="Place" EntitySet="Places" />
+            <End Role="Pilot" EntitySet="Pilots" />
+          </AssociationSet>
+          <AssociationSet Name="C1FK_Pilot_ToPlace" Association="Self.C1FK_Pilot_ToPlace">
+            <End Role="Place" EntitySet="Places" />
+            <End Role="Pilot" EntitySet="Pilots" />
+          </AssociationSet>
+          <AssociationSet Name="C2FK_Pilot_ToPlace" Association="Self.C2FK_Pilot_ToPlace">
+            <End Role="Place" EntitySet="Places" />
+            <End Role="Pilot" EntitySet="Pilots" />
+          </AssociationSet>
+          <AssociationSet Name="C3FK_Pilot_ToPlace" Association="Self.C3FK_Pilot_ToPlace">
+            <End Role="Place" EntitySet="Places" />
+            <End Role="Pilot" EntitySet="Pilots" />
+          </AssociationSet>
+          <AssociationSet Name="C4FK_Pilot_ToPlace" Association="Self.C4FK_Pilot_ToPlace">
+            <End Role="Place" EntitySet="Places" />
+            <End Role="Pilot" EntitySet="Pilots" />
+          </AssociationSet>
+          <AssociationSet Name="C5FK_Pilot_ToPlace" Association="Self.C5FK_Pilot_ToPlace">
+            <End Role="Place" EntitySet="Places" />
+            <End Role="Pilot" EntitySet="Pilots" />
+          </AssociationSet>
+          <AssociationSet Name="C6FK_Pilot_ToPlace" Association="Self.C6FK_Pilot_ToPlace">
+            <End Role="Place" EntitySet="Places" />
+            <End Role="Pilot" EntitySet="Pilots" />
+          </AssociationSet>
+          <AssociationSet Name="C7FK_Pilot_ToPlace" Association="Self.C7FK_Pilot_ToPlace">
+            <End Role="Place" EntitySet="Places" />
+            <End Role="Pilot" EntitySet="Pilots" />
+          </AssociationSet>
+          <AssociationSet Name="C8FK_Pilot_ToPlace" Association="Self.C8FK_Pilot_ToPlace">
+            <End Role="Place" EntitySet="Places" />
+            <End Role="Pilot" EntitySet="Pilots" />
+          </AssociationSet>
+          <AssociationSet Name="C9FK_Pilot_ToPlace" Association="Self.C9FK_Pilot_ToPlace">
+            <End Role="Place" EntitySet="Places" />
+            <End Role="Pilot" EntitySet="Pilots" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Database1ModelStoreContainer" CdmEntityContainer="Database1Entities">
+          <EntitySetMapping Name="Pilots">
+            <EntityTypeMapping TypeName="Database1Model.Pilot">
+              <MappingFragment StoreEntitySet="Pilot">
+                <ScalarProperty Name="PilotId" ColumnName="PilotId" />
+                <ScalarProperty Name="Név" ColumnName="Név" />
+                <ScalarProperty Name="Nem" ColumnName="Nem" />
+                <ScalarProperty Name="Kor" ColumnName="Kor" />
+                <ScalarProperty Name="C18f2" ColumnName="18f2" />
+                <ScalarProperty Name="C19f2" ColumnName="19f2" />
+                <ScalarProperty Name="C20f2" ColumnName="20f2" />
+                <ScalarProperty Name="C18f3" ColumnName="18f3" />
+                <ScalarProperty Name="C19f3" ColumnName="19f3" />
+                <ScalarProperty Name="C20f3" ColumnName="20f3" />
+                <ScalarProperty Name="C18g3" ColumnName="18g3" />
+                <ScalarProperty Name="C18fe" ColumnName="18fe" />
+                <ScalarProperty Name="C19fe" ColumnName="19fe" />
+                <ScalarProperty Name="C20fe" ColumnName="20fe" />
+                <ScalarProperty Name="egyéb" ColumnName="egyéb" />
+                <ScalarProperty Name="szerződés" ColumnName="szerződés" />
+                <ScalarProperty Name="verseny" ColumnName="verseny" />
+                <ScalarProperty Name="teszt" ColumnName="teszt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Places">
+            <EntityTypeMapping TypeName="Database1Model.Place">
+              <MappingFragment StoreEntitySet="Place">
+                <ScalarProperty Name="PlaceId" ColumnName="PlaceId" />
+                <ScalarProperty Name="f2" ColumnName="f2" />
+                <ScalarProperty Name="f3" ColumnName="f3" />
+                <ScalarProperty Name="gp3" ColumnName="gp3" />
+                <ScalarProperty Name="fe" ColumnName="fe" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
