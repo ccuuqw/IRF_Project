@@ -11,7 +11,7 @@
           </Key>
           <Property Name="PilotId" Type="int" Nullable="false" />
           <Property Name="Név" Type="nchar" MaxLength="50" />
-          <Property Name="Nem" Type="bit" />
+          <Property Name="Nem" Type="int" />
           <Property Name="Kor" Type="int" />
           <Property Name="18f2" Type="int" />
           <Property Name="19f2" Type="int" />
@@ -23,10 +23,10 @@
           <Property Name="18fe" Type="int" />
           <Property Name="19fe" Type="int" />
           <Property Name="20fe" Type="int" />
-          <Property Name="egyéb" Type="bit" />
-          <Property Name="szerződés" Type="bit" />
-          <Property Name="verseny" Type="bit" />
-          <Property Name="teszt" Type="bit" />
+          <Property Name="egyéb" Type="int" />
+          <Property Name="szerződés" Type="int" />
+          <Property Name="verseny" Type="int" />
+          <Property Name="teszt" Type="int" />
         </EntityType>
         <EntityType Name="Place">
           <Key>
@@ -213,7 +213,7 @@
           </Key>
           <Property Name="PilotId" Type="Int32" Nullable="false" />
           <Property Name="Név" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
-          <Property Name="Nem" Type="Boolean" />
+          <Property Name="Nem" Type="Int32" />
           <Property Name="Kor" Type="Int32" />
           <Property Name="C18f2" Type="Int32" />
           <Property Name="C19f2" Type="Int32" />
@@ -225,10 +225,10 @@
           <Property Name="C18fe" Type="Int32" />
           <Property Name="C19fe" Type="Int32" />
           <Property Name="C20fe" Type="Int32" />
-          <Property Name="egyéb" Type="Boolean" />
-          <Property Name="szerződés" Type="Boolean" />
-          <Property Name="verseny" Type="Boolean" />
-          <Property Name="teszt" Type="Boolean" />
+          <Property Name="egyéb" Type="Int32" />
+          <Property Name="szerződés" Type="Int32" />
+          <Property Name="verseny" Type="Int32" />
+          <Property Name="teszt" Type="Int32" />
           <NavigationProperty Name="Place" Relationship="Self.C10FK_Pilot_ToPlace" FromRole="Pilot" ToRole="Place" />
           <NavigationProperty Name="Place1" Relationship="Self.C1FK_Pilot_ToPlace" FromRole="Pilot" ToRole="Place" />
           <NavigationProperty Name="Place2" Relationship="Self.C2FK_Pilot_ToPlace" FromRole="Pilot" ToRole="Place" />
@@ -380,7 +380,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Database1Entities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="Database1Entities2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Pilots" EntityType="Self.Pilot" />
           <EntitySet Name="Places" EntityType="Self.Place" />
           <AssociationSet Name="C10FK_Pilot_ToPlace" Association="Self.C10FK_Pilot_ToPlace">
@@ -429,7 +429,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Database1ModelStoreContainer" CdmEntityContainer="Database1Entities">
+        <EntityContainerMapping StorageEntityContainer="Database1ModelStoreContainer" CdmEntityContainer="Database1Entities2">
           <EntitySetMapping Name="Pilots">
             <EntityTypeMapping TypeName="Database1Model.Pilot">
               <MappingFragment StoreEntitySet="Pilot">

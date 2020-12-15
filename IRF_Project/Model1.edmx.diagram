@@ -4,9 +4,9 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="5f27019e5730444ebd4d8731bdd84793" Name="Diagram1">
-        <EntityTypeShape EntityType="Database1Model.Pilot" Width="1.5" PointX="0.625" PointY="0.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="Database1Model.Place" Width="1.5" PointX="3.125" PointY="1.875" IsExpanded="true" />
+      <Diagram DiagramId="69445b85044f4138b7cf753fc99f9052" Name="Diagram1">
+        <EntityTypeShape EntityType="Database1Model.Pilot" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.Place" Width="1.5" PointX="0.75" PointY="2.375" IsExpanded="true" />
         <AssociationConnector Association="Database1Model.C10FK_Pilot_ToPlace" ManuallyRouted="false" />
         <AssociationConnector Association="Database1Model.C1FK_Pilot_ToPlace" ManuallyRouted="false" />
         <AssociationConnector Association="Database1Model.C2FK_Pilot_ToPlace" ManuallyRouted="false" />

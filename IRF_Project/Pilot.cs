@@ -16,7 +16,7 @@ namespace IRF_Project
     {
         public int PilotId { get; set; }
         public string Név { get; set; }
-        public Nullable<bool> Nem { get; set; }
+        public Nullable<int> Nem { get; set; }
         public Nullable<int> Kor { get; set; }
         public Nullable<int> C18f2 { get; set; }
         public Nullable<int> C19f2 { get; set; }
@@ -28,10 +28,10 @@ namespace IRF_Project
         public Nullable<int> C18fe { get; set; }
         public Nullable<int> C19fe { get; set; }
         public Nullable<int> C20fe { get; set; }
-        public Nullable<bool> egyéb { get; set; }
-        public Nullable<bool> szerződés { get; set; }
-        public Nullable<bool> verseny { get; set; }
-        public Nullable<bool> teszt { get; set; }
+        public Nullable<int> egyéb { get; set; }
+        public Nullable<int> szerződés { get; set; }
+        public Nullable<int> verseny { get; set; }
+        public Nullable<int> teszt { get; set; }
     
         public virtual Place Place { get; set; }
         public virtual Place Place1 { get; set; }
