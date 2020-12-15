@@ -33,6 +33,7 @@ namespace IRF_Project
             Osztalyozas();
             Kategorizal();
             MessageBox.Show(kategoriak.Count.ToString());
+            dataGridView1.DataSource = kategoriak;
         }
 
         private void Feltoltes()
@@ -62,10 +63,10 @@ namespace IRF_Project
                 P.Nev = pilots[i].Név;
                 P.Nem = (int)pilots[i].Nem;
                 P.Kor = (int)pilots[i].Kor;
-                P.Pontszam = (int)(pilots[i].Place.f2+ pilots[i].Place1.f2 + pilots[i].Place2.f2 +
-                     pilots[i].Place3.f3 + pilots[i].Place4.f3 + pilots[i].Place5.f3 +
-                      pilots[i].Place6.gp3 + pilots[i].Place7.fe + pilots[i].Place8.fe +
-                       pilots[i].Place9.fe);
+                P.Pontszam = (int)(pilots[i].Place1.f2+ pilots[i].Place2.f2 + pilots[i].Place3.f2 +
+                     pilots[i].Place4.f3 + pilots[i].Place5.f3 + pilots[i].Place6.f3 +
+                      pilots[i].Place7.gp3 + pilots[i].Place8.fe + pilots[i].Place9.fe +
+                       pilots[i].Place.fe);
                 if (P.Pontszam<40&&pilots[i].egyéb==1)
                 {
                     P.Pontszam = 40;
@@ -73,6 +74,10 @@ namespace IRF_Project
                 P.Szerzodes = (int)pilots[i].szerződés;
                 P.Verseny = (int)pilots[i].verseny;
                 P.Teszt = (int)pilots[i].teszt;
+                if (P.Szerzodes == 1)
+                {
+                    continue;
+                }
                 pilotak.Add(P);
             }
         }
@@ -89,11 +94,7 @@ namespace IRF_Project
                 else
                 { sz.Nem = 1.2; }
 
-                if (pilotak[i].Kor==0)
-                {
-                    sz.Kor = 0;
-                }
-                else if (pilotak[i].Kor<18)
+                if (pilotak[i].Kor<18)
                 {
                     sz.Kor = 1.5;
                 }
@@ -167,7 +168,7 @@ namespace IRF_Project
                 }
                 else
                 {
-                    k.Versenyzo = true;
+                    k.Versenyzo = false;
                 }
                 if(!k.Junior&&!k.Tesztpilota&&!k.Versenyzo)
                 {
