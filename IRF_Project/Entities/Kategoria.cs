@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace IRF_Project.Entities
 {
-    class Kategoria
+    public class Kategoria
     {
+        public string Nev { get; set; }
+        public double Ertekeles { get; set; }
+        public bool Versenyzo { get; set; }
+        public bool Tesztpilota { get; set; }
+        public bool Junior { get; set; }
     }
 }
