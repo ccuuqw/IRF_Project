@@ -12,6 +12,6 @@ namespace IRF_Project.Entities
         public double Nem { get; set; }
         public double Kor { get; set; }
         public double Tapasztalat { get; set; }
-
+        public int Pontszam { get; set; }
     }
 }
