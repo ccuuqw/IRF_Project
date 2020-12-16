@@ -17,39 +17,77 @@ namespace IRF_Project
     {
         Database1Entities2 context = new Database1Entities2();
         List<Pilot> pilots = new List<Pilot>();
-        //List<Place> places = new List<Place>();
         List<Pilota> pilotak = new List<Pilota>(); //gyengéket leszámítva mindenki (nincs legjobb 15-beli eredménye)
         List<Szorzok> szorzok = new List<Szorzok>(); //gyengéket leszámítva mindenki
         List<Kategoria> kategoriak = new List<Kategoria>(); //csak aki legalább egy kategoriának megfelel
+        List<int> rendezosorrend = new List<int>(); //sorbaállításhoz kategóriak lista indexei
+        List<Kategoria> rendezett = new List<Kategoria>(); //rendezett lista
         public Form1()
         {
             InitializeComponent();
-            //context.Pilots.Load();
-            //context.Places.Load();
             pilots = context.Pilots.ToList();
-            //places = context.Places.ToList<Place>();
             Feltoltes();
-            MessageBox.Show(pilotak.Count.ToString());
             Osztalyozas();
             Kategorizal();
-            MessageBox.Show(kategoriak.Count.ToString());
-            dataGridView1.DataSource = kategoriak;
+            Rendezes();
+            //linq-val kéne a maximumot kivenni
+            //az alapján a fényképeket betenni: Shwartzman, Armstrong, Tsunoda
+            //aztán unit test
+            //aztán csv-be írás
+        }
+
+        private void Rendezes()
+        {
+            List<double> rendezoszam = new List<double>();
+            List<string> rendezonev = new List<string>();
+            List<string> segedrendezonev = new List<string>();
+            for (int i = 0; i < kategoriak.Count; i++)
+            {
+                rendezoszam.Add(kategoriak[i].Ertekeles);
+                rendezonev.Add(kategoriak[i].Nev);
+            }
+
+            int sorszam = rendezoszam.Count;
+            while (sorszam > 0)
+            {
+                double j = 0;
+                int k = 0;
+                for (int i = 0; i < rendezoszam.Count; i++)
+                {
+
+                    if (rendezoszam[i] >= j && !segedrendezonev.Contains(rendezonev[i]))
+                    {
+                        j = rendezoszam[i];
+                        k = i;
+                            
+                    }
+                    
+                }
+                //rendezoszam.RemoveAt(k);
+                rendezosorrend.Add(k);
+                segedrendezonev.Add(rendezonev[k]);
+                sorszam--;
+            }
+            for (int i = 0; i < rendezosorrend.Count; i++)
+            {
+                rendezett.Add(kategoriak[rendezosorrend[i]]);
+            }
         }
 
         private void Feltoltes()
         {
             for (int i = 0; i < pilots.Count; i++)
             {
-                if ((pilots[i].C18f2 == 0 || pilots[i].C18f2 > 16) &&
-                    (pilots[i].C19f2 == 0 || pilots[i].C19f2 > 16) &&
-                    (pilots[i].C20f2 == 0 || pilots[i].C20f2 > 16) &&
-                    (pilots[i].C18f3 == 0 || pilots[i].C18f3 > 16) &&
-                    (pilots[i].C19f3 == 0 || pilots[i].C19f3 > 16) &&
-                    (pilots[i].C20f3 == 0 || pilots[i].C20f3 > 16) &&
-                    (pilots[i].C18g3 == 0 || pilots[i].C18g3 > 16) &&
-                    (pilots[i].C18fe == 0 || pilots[i].C18fe > 16) &&
-                    (pilots[i].C19fe == 0 || pilots[i].C19fe > 16) &&
-                    (pilots[i].C20fe == 0 || pilots[i].C20fe > 16))
+                if ((pilots[i].C18f2 == 0 || pilots[i].C18f2 > 15) &&
+                    (pilots[i].C19f2 == 0 || pilots[i].C19f2 > 15) &&
+                    (pilots[i].C20f2 == 0 || pilots[i].C20f2 > 15) &&
+                    (pilots[i].C18f3 == 0 || pilots[i].C18f3 > 15) &&
+                    (pilots[i].C19f3 == 0 || pilots[i].C19f3 > 15) &&
+                    (pilots[i].C20f3 == 0 || pilots[i].C20f3 > 15) &&
+                    (pilots[i].C18g3 == 0 || pilots[i].C18g3 > 15) &&
+                    (pilots[i].C18fe == 0 || pilots[i].C18fe > 15) &&
+                    (pilots[i].C19fe == 0 || pilots[i].C19fe > 15) &&
+                    (pilots[i].C20fe == 0 || pilots[i].C20fe > 15))
                 {
                     if (pilots[i].egyéb!=1)
                     {
@@ -64,9 +102,9 @@ namespace IRF_Project
                 P.Nem = (int)pilots[i].Nem;
                 P.Kor = (int)pilots[i].Kor;
                 P.Pontszam = (int)(pilots[i].Place1.f2+ pilots[i].Place2.f2 + pilots[i].Place3.f2 +
-                     pilots[i].Place4.f3 + pilots[i].Place5.f3 + pilots[i].Place6.f3 +
-                      pilots[i].Place7.gp3 + pilots[i].Place8.fe + pilots[i].Place9.fe +
-                       pilots[i].Place.fe);
+                                   pilots[i].Place4.f3  + pilots[i].Place5.f3 + pilots[i].Place6.f3 +
+                                   pilots[i].Place7.gp3 + pilots[i].Place8.fe + pilots[i].Place9.fe +
+                                   pilots[i].Place.fe);
                 if (P.Pontszam<40&&pilots[i].egyéb==1)
                 {
                     P.Pontszam = 40;
