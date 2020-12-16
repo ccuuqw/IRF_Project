@@ -164,5 +164,8 @@
     </Content>
     <Content Include="README.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="pics\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

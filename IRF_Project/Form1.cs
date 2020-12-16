@@ -31,10 +31,6 @@ namespace IRF_Project
             Osztalyozas();
             Kategorizal();
             Rendezes();
-            //linq-val kéne a maximumot kivenni
-            //az alapján a fényképeket betenni: Shwartzman, Armstrong, Tsunoda
-            //aztán unit test
-            //aztán csv-be írás
         }
         private void Labelek_inditas()
         {
@@ -242,9 +238,9 @@ namespace IRF_Project
                                 orderby x.Ertekeles descending
                                 select x).ToList();
             label4.Text = topversenyzok[0].Nev;
-            pictureBox1.Image = Image.FromFile("Shwartzman.jpg");
+            pictureBox1.Image = Image.FromFile("pics/Shwartzman.jpg");
             pictureBox1.Paint += PictureBox1_Paint;
-            label7.Text = "További jelöltek:\n"+topversenyzok[1].Nev+"\n" + topversenyzok[2].Nev + "\n"+ topversenyzok[3].Nev;
+            label7.Text = "További jelöltek:\n- "+topversenyzok[1].Nev+"\n- " + topversenyzok[2].Nev + "\n- "+ topversenyzok[3].Nev;
         }
 
         private void PictureBox1_Paint(object sender, PaintEventArgs e)
@@ -255,14 +251,12 @@ namespace IRF_Project
             g.DrawLine(zsinor, 40, 70, 40, 182);
             SolidBrush redBrush = new SolidBrush(Color.Red);
 
-            // Create location and size of ellipse.
             int x = 10;
             int y = 10;
             int width = 60;
             int height = 80;
 
-            // Fill ellipse on screen.
-            e.Graphics.FillEllipse(redBrush, x, y, width, height);
+            g.FillEllipse(redBrush, x, y, width, height);
             g.DrawLine(zsinor, 36, 90, 44, 90);
             g.DrawLine(lufi, 34, 92, 46, 92);
             g.DrawLine(lufi, 33, 94, 47, 94);
@@ -276,7 +270,7 @@ namespace IRF_Project
                                  orderby x.Ertekeles descending
                                  select x).ToList();
             label5.Text = tesztpilotak[0].Nev;
-            pictureBox2.Image = Image.FromFile("Armstrong.jpg");
+            pictureBox2.Image = Image.FromFile("pics/Armstrong.jpg");
             pictureBox2.Paint += PictureBox2_Paint;
             label8.Text = "További jelöltek:\n- " + tesztpilotak[1].Nev + "\n- " + tesztpilotak[2].Nev + "\n- " + tesztpilotak[3].Nev;
         }
@@ -289,14 +283,12 @@ namespace IRF_Project
             g.DrawLine(zsinor, 40, 70, 40, 182);
             SolidBrush greenBrush = new SolidBrush(Color.Green);
 
-            // Create location and size of ellipse.
             int x = 10;
             int y = 10;
             int width = 60;
             int height = 80;
 
-            // Fill ellipse on screen.
-            e.Graphics.FillEllipse(greenBrush, x, y, width, height);
+            g.FillEllipse(greenBrush, x, y, width, height);
             g.DrawLine(zsinor, 36, 90, 44, 90);
             g.DrawLine(lufi, 34, 92, 46, 92);
             g.DrawLine(lufi, 33, 94, 47, 94);
@@ -310,7 +302,7 @@ namespace IRF_Project
                                 orderby x.Ertekeles descending
                                 select x).ToList();
             label6.Text = juniorok[0].Nev;
-            pictureBox3.Image = Image.FromFile("Tsunoda.jpg");
+            pictureBox3.Image = Image.FromFile("pics/Tsunoda.jpg");
             pictureBox3.Paint += PictureBox3_Paint;
             
             label9.Text = "További jelöltek:\n- " + juniorok[1].Nev + "\n- " + juniorok[2].Nev + "\n- " + juniorok[3].Nev;
@@ -324,14 +316,12 @@ namespace IRF_Project
             g.DrawLine(zsinor, 40, 70, 40, 182);
             SolidBrush yellowBrush = new SolidBrush(Color.Yellow);
 
-            // Create location and size of ellipse.
             int x = 10;
             int y = 10;
             int width = 60;
             int height = 80;
 
-            // Fill ellipse on screen.
-            e.Graphics.FillEllipse(yellowBrush, x, y, width, height);
+            g.FillEllipse(yellowBrush, x, y, width, height);
             g.DrawLine(zsinor, 36, 90, 44, 90);
             g.DrawLine(lufi, 34, 92, 46, 92);
             g.DrawLine(lufi, 33, 94, 47, 94);
@@ -342,22 +332,18 @@ namespace IRF_Project
             //csv-be mentés
             SaveFileDialog sfd = new SaveFileDialog();
 
-            // Opcionális rész
-            sfd.InitialDirectory = Application.StartupPath; // Alapértelmezetten az exe fájlunk mappája fog megnyílni a dialógus ablakban
-            sfd.Filter = "Comma Seperated Values (*.csv)|*.csv"; // A kiválasztható fájlformátumokat adjuk meg ezzel a sorral. Jelen esetben csak a csv-t fogadjuk el
-            sfd.DefaultExt = "csv"; // A csv lesz az alapértelmezetten kiválasztott kiterjesztés
-            sfd.AddExtension = true; // Ha ez igaz, akkor hozzáírja a megadott fájlnévhez a kiválasztott kiterjesztést, de érzékeli, ha a felhasználó azt is beírta és nem fogja duplán hozzáírni
+            sfd.InitialDirectory = Application.StartupPath;
+            sfd.Filter = "Comma Seperated Values (*.csv)|*.csv";
+            sfd.DefaultExt = "csv"; 
+            sfd.AddExtension = true;
 
-            // Ez a sor megnyitja a dialógus ablakot és csak akkor engedi tovább futni a kódot, ha az ablakot az OK gombbal zárták be
+            
             if (sfd.ShowDialog() != DialogResult.OK) return;
             using (StreamWriter sw = new StreamWriter(sfd.FileName, false, Encoding.UTF8))
             {
-                // Végigmegyünk a hallgató lista elemein
+            
                 foreach (var r in rendezett)
                 {
-                    // Egy ciklus iterációban egy sor tartalmát írjuk a fájlba
-                    // A StreamWriter Write metódusa a WriteLine-al szemben nem nyit új sort
-                    // Így darabokból építhetjük fel a csv fájl pontosvesszővel elválasztott sorait
                     sw.Write(r.Nev);
                     sw.Write(";");
                     sw.Write(r.Ertekeles);
@@ -367,7 +353,7 @@ namespace IRF_Project
                     sw.Write(r.Tesztpilota);
                     sw.Write(";");
                     sw.Write(r.Junior);
-                    sw.WriteLine(); // Ez a sor az alábbi módon is írható: sr.Write("\n");
+                    sw.WriteLine();
                 }
             }
 
