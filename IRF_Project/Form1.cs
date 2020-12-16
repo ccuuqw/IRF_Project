@@ -195,7 +195,7 @@ namespace IRF_Project
                 Kategoria k = new Kategoria();
                 k.Nev = szorzok[i].Nev;
                 k.Ertekeles = (1 + szorzok[i].Pontszam) * szorzok[i].Nem*szorzok[i].Kor*szorzok[i].Tapasztalat;
-                if ((k.Ertekeles<3&&szorzok[i].Kor==1.5)||(k.Ertekeles<5&&szorzok[i].Kor==1.3)||(k.Ertekeles<10))
+                if ((k.Ertekeles<=3&&szorzok[i].Kor==1.5)||(k.Ertekeles<=5&&szorzok[i].Kor==1.3)||(k.Ertekeles<=10))
                 {
                     continue;
                 }
@@ -207,7 +207,7 @@ namespace IRF_Project
                 {
                     k.Junior = false;
                 }
-                if (k.Ertekeles>20||szorzok[i].Tapasztalat>1)
+                if (k.Ertekeles>=20||szorzok[i].Tapasztalat>1)
                 {
                     k.Tesztpilota = true;
                 }
