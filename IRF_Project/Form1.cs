@@ -251,6 +251,7 @@ namespace IRF_Project
         {
             Graphics g = e.Graphics;
             Pen zsinor = new Pen(Color.Silver, 3);
+            Pen lufi = new Pen(Color.Red, 2);
             g.DrawLine(zsinor, 40, 70, 40, 182);
             SolidBrush redBrush = new SolidBrush(Color.Red);
 
@@ -262,6 +263,9 @@ namespace IRF_Project
 
             // Fill ellipse on screen.
             e.Graphics.FillEllipse(redBrush, x, y, width, height);
+            g.DrawLine(zsinor, 36, 90, 44, 90);
+            g.DrawLine(lufi, 34, 92, 46, 92);
+            g.DrawLine(lufi, 33, 94, 47, 94);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -281,6 +285,7 @@ namespace IRF_Project
         {
             Graphics g = e.Graphics;
             Pen zsinor = new Pen(Color.Silver, 3);
+            Pen lufi = new Pen(Color.Green, 2);
             g.DrawLine(zsinor, 40, 70, 40, 182);
             SolidBrush greenBrush = new SolidBrush(Color.Green);
 
@@ -292,6 +297,9 @@ namespace IRF_Project
 
             // Fill ellipse on screen.
             e.Graphics.FillEllipse(greenBrush, x, y, width, height);
+            g.DrawLine(zsinor, 36, 90, 44, 90);
+            g.DrawLine(lufi, 34, 92, 46, 92);
+            g.DrawLine(lufi, 33, 94, 47, 94);
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -312,6 +320,7 @@ namespace IRF_Project
         {
             Graphics g = e.Graphics;
             Pen zsinor = new Pen(Color.Silver, 3);
+            Pen lufi = new Pen(Color.Yellow, 2);
             g.DrawLine(zsinor, 40, 70, 40, 182);
             SolidBrush yellowBrush = new SolidBrush(Color.Yellow);
 
@@ -323,6 +332,9 @@ namespace IRF_Project
 
             // Fill ellipse on screen.
             e.Graphics.FillEllipse(yellowBrush, x, y, width, height);
+            g.DrawLine(zsinor, 36, 90, 44, 90);
+            g.DrawLine(lufi, 34, 92, 46, 92);
+            g.DrawLine(lufi, 33, 94, 47, 94);
         }
 
         private void button4_Click(object sender, EventArgs e)
